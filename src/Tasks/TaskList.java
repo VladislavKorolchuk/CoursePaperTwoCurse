@@ -11,11 +11,12 @@ public class TaskList {
         taskHashMap.put(id, task);
     }
 
-    public void taskListAllInfo() {
+    public void printAllTasks() {
 
         for (Map.Entry<Integer, Task> entry : taskHashMap.entrySet()) {
             System.out.println("id = " + entry.getKey() + "   " + entry.getValue());
         }
+
     }
 
     public boolean deleteTask(int id) {            // Удаление задачи

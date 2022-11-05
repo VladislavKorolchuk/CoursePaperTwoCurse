@@ -1,5 +1,5 @@
-import Tasks.RepeatTask;
-import Tasks.TapeTask;
+import Tasks.TypeOfTaskRepeat;
+import Tasks.DivisionByType;
 import Tasks.Task;
 import Tasks.TaskList;
 
@@ -48,7 +48,7 @@ public class Main {
                             }
                             break;
                         case 4: // Вывод всех задач в консоль
-                            taskList.taskListAllInfo();
+                            taskList.printAllTasks();
                             break;
                         case 0:
                             break label;
@@ -80,23 +80,23 @@ public class Main {
 
         switch (repeatability) {
             case 1:
-                Task task1 = new Task(headingName, taskName, RepeatTask.ONE_TIME, TapeTask.PERSONAL_TASK);
+                Task task1 = new Task(headingName, taskName, TypeOfTaskRepeat.ONE_TIME, DivisionByType.PERSONAL_TASK);
                 taskList.addList(task1.getId(), task1);
                 break;
             case 2:
-                Task task2 = new Task(headingName, taskName, RepeatTask.DAILI, TapeTask.PERSONAL_TASK);
+                Task task2 = new Task(headingName, taskName, TypeOfTaskRepeat.DAILY, DivisionByType.PERSONAL_TASK);
                 taskList.addList(task2.getId(), task2);
                 break;
             case 3:
-                Task task3 = new Task(headingName, taskName, RepeatTask.WEEKLY, TapeTask.PERSONAL_TASK);
+                Task task3 = new Task(headingName, taskName, TypeOfTaskRepeat.WEEKLY, DivisionByType.PERSONAL_TASK);
                 taskList.addList(task3.getId(), task3);
                 break;
             case 4:
-                Task task4 = new Task(headingName, taskName, RepeatTask.MONTHLY, TapeTask.PERSONAL_TASK);
+                Task task4 = new Task(headingName, taskName, TypeOfTaskRepeat.MONTHLY, DivisionByType.PERSONAL_TASK);
                 taskList.addList(task4.getId(), task4);
                 break;
             case 5:
-                Task task5 = new Task(headingName, taskName, RepeatTask.ANNUAL, TapeTask.PERSONAL_TASK);
+                Task task5 = new Task(headingName, taskName, TypeOfTaskRepeat.ANNUAL, DivisionByType.PERSONAL_TASK);
                 taskList.addList(task5.getId(), task5);
                 break;
             //     default:

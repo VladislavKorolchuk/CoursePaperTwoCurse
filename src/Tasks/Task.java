@@ -8,18 +8,18 @@ public class Task {
     final String heading;               // Заголовок
     final String description;           // Описание задачи
     final LocalDate date;               // Дата и время задачи
-    RepeatTask repeatTask;              // Повторяемость
-    TapeTask tapeTask;                  // Тип Личная/Рабочая
+    final TypeOfTaskRepeat repeatTask;              // Повторяемость
+    final DivisionByType tapeTask;                  // Тип Личная/Рабочая
     LocalDate nextDate;                // Следующая повторяемость
 
-    public Task(String heading, String description, RepeatTask repeatTask, TapeTask tapeTask) {
+    public Task(String heading, String description, TypeOfTaskRepeat repeatTask, DivisionByType tapeTask) {
         id = idGenerator++;
         this.heading = heading;
         this.description = description;
         date = LocalDate.now();                // Получение текущей даты
         this.repeatTask = repeatTask;
         this.tapeTask = tapeTask;
-        nextDate();
+        this.nextDate = nextDate();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Task {
         return date;
     }
 
-    public RepeatTask getRepeatTask() {
+    public TypeOfTaskRepeat getRepeatTask() {
         return repeatTask;
     }
 
@@ -48,25 +48,20 @@ public class Task {
         return nextDate;
     }
 
-    public void nextDate() {  // Заполнение следующей даты ежедневника
+    public LocalDate nextDate() {  // Заполнение следующей даты ежедневника
         switch (this.repeatTask) {
             case ONE_TIME:
-                nextDate = date;
-                break;
-            case DAILI:
-                nextDate = date.plusDays(1);
-                break;
+                return date;
+            case DAILY:
+                return date.plusDays(1);
             case WEEKLY:
-                nextDate=date.plusWeeks(1);
-                break;
+                return date.plusWeeks(1);
             case MONTHLY:
-                nextDate=date.plusMonths(1);
-                break;
+                return date.plusMonths(1);
             case ANNUAL:
-                nextDate=date.plusYears(1);
-                break;
+                return date.plusYears(1);
             default:
-                break;
+                return date;
         }
     }
 

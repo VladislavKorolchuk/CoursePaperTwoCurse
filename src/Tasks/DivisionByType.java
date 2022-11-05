@@ -1,12 +1,12 @@
 package Tasks;
 
-public enum TapeTask {
+public enum DivisionByType {
 
     PERSONAL_TASK("Личная задача"), WORK_TASK("Рабочая задача");
 
     String tapeTask;
 
-    TapeTask(String tapeTask) {
+    DivisionByType(String tapeTask) {
         this.tapeTask = tapeTask;
     }
 
